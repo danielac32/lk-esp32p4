@@ -1,0 +1,31 @@
+# LK project for ESP32-P4
+
+LOCAL_DIR := $(GET_LOCAL_DIR)
+
+TARGET := esp32p4
+
+MODULES += \
+	app \
+	app/shell \
+	app/uartstress \
+	dev/uart/esp32p4 \
+	dev/block/sdmmc-esp32p4 \
+	dev/gpio \
+	dev/wifi/esp32p4 \
+	lib/bcache \
+	lib/bio \
+	lib/cmdline \
+	lib/console \
+	lib/fs \
+	lib/fs/fat \
+	lib/libcpp \
+	lib/lktl
+# minip desactivado: estado funcional WiFi+FAT (se reactivara al arreglar scheduler)
+
+
+
+
+GLOBAL_DEFINES += CONSOLE_HAS_INPUT_BUFFER=1 \
+	PKTBUF_POOL_SIZE=32 PKTBUF_EXTRA_HEADERS=8 PKTBUF_ETH_RX_POOL_RESERVE=8
+
+include project/target/esp32p4.mk

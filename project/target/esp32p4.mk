@@ -1,0 +1,7 @@
+WITH_SMP ?= true
+SMP_MAX_CPUS ?= 2
+RISCV_MODE ?= machine
+SUBARCH ?= 32
+RISCV_FPU ?= true
+LK_HEAP_IMPLEMENTATION ?= dlmalloc
+
